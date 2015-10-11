@@ -11,10 +11,15 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.swing.Action;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
+import javax.swing.event.UndoableEditEvent;
+import javax.swing.event.UndoableEditListener;
 import javax.swing.text.JTextComponent;
+import javax.swing.undo.CannotRedoException;
+import javax.swing.undo.UndoableEdit;
 
 public class TextLinkedToBar extends Component{
 	Text text;
@@ -22,7 +27,7 @@ public class TextLinkedToBar extends Component{
 	public TextLinkedToBar(Text text, MenuBar menuBar) {
 		super();
 		this.text = text;
-		this.menuBar = menuBar;
+		this.menuBar = menuBar;		
 		//TIME AND DATE FUNCTIONING
 		menuBar.getEditMenu().getTimeDate().addActionListener(new ActionListener() {
 			
@@ -74,16 +79,13 @@ public class TextLinkedToBar extends Component{
 				// TODO Auto-generated method stub
 				
 			}
-			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(SwingUtilities.isRightMouseButton(e)) {
 					JPopupMenu editPopup = new JPopupMenu();
-					JMenuItem editPopupUndoField = menuBar.getEditMenu().getUndo();
-					JMenuItem editPopupCutField = menuBar.getEditMenu().getCut();
-					JMenuItem editPopupCopyField = menuBar.getEditMenu().getCopy();
-					JMenuItem editPopupPasteField = menuBar.getEditMenu().getPaste();
-					editPopup.add(editPopupUndoField);
+					Action editPopupCutField = menuBar.getEditMenu().getCut();
+					Action editPopupCopyField = menuBar.getEditMenu().getCopy();
+					Action editPopupPasteField = menuBar.getEditMenu().getPaste();
 					editPopup.add(editPopupCutField);
 					editPopup.add(editPopupCopyField);
 					editPopup.add(editPopupPasteField);

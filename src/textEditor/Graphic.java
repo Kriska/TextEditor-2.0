@@ -41,7 +41,7 @@ public class Graphic extends JFrame {
 		TextLinkedToBar textLinkedToBar = new TextLinkedToBar(textArea, menuBar);
 		pane.add(textLinkedToBar.getText().getScroll(), BorderLayout.CENTER);
 		pane.add(textLinkedToBar.getMenuBar().getMyBar(), BorderLayout.NORTH);
-	//	textArea.getText().setLineWrap(true);
+		
 	
 	}
 	
