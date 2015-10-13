@@ -3,6 +3,7 @@ package textEditor;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileReader;
 import java.util.Scanner;
 
@@ -17,6 +18,13 @@ public class NewMenuItem extends Component {
 	public void setNewItem(JMenuItem newItem) {
 		this.newItem = newItem;
 	}
+	File file;
+	public File getFile() {
+		return file;
+	}
+	public void setFile(File file) {
+		this.file = file;
+	}
 	NewMenuItem() {
 		super();
 		newItem = new JMenuItem("New");
@@ -24,10 +32,8 @@ public class NewMenuItem extends Component {
 		newItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			        if (fileChooser.showOpenDialog(null) == fileChooser.APPROVE_OPTION) {
-			        	System.out.println("Selected");
+			        	 file = fileChooser.getSelectedFile();
 			        }
-				 
-				
 			}
 			});
 	}

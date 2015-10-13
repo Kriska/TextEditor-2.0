@@ -7,11 +7,17 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.Action;
+import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
@@ -27,8 +33,54 @@ public class TextLinkedToBar extends Component{
 	public TextLinkedToBar(Text text, MenuBar menuBar) {
 		super();
 		this.text = text;
-		this.menuBar = menuBar;		
-		//TIME AND DATE FUNCTIONING
+		this.menuBar = menuBar;	
+		//NEW FILE
+		menuBar.getNewField().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		        text.getText().setText(null);
+			}
+		});
+		//OPEN FILE
+		menuBar.getOpenField().addActionListener(new ActionListener() {
+			JFileChooser fileChooser=new JFileChooser();
+			public void actionPerformed(ActionEvent e) {
+		        if (fileChooser.showOpenDialog(null) == fileChooser.APPROVE_OPTION) {
+		        	text.setFile( fileChooser.getSelectedFile());
+		        	//DISPLAY FILE TEXT IN TEXT AREA
+		        	try
+	                {
+	                    FileReader reader = new FileReader(text.getFile());
+	                    BufferedReader br = new BufferedReader(reader);
+	                    text.getText().read( br, null );
+	                    br.close();
+	                    text.getText().requestFocus();
+	                }
+	                catch(Exception e2) { System.out.println(e2); }
+	            }
+	        }
+		});
+		//SAVE FILE
+		menuBar.getSaveField().addActionListener(new ActionListener() {
+			JFileChooser fileChooser=new JFileChooser();
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (fileChooser.showSaveDialog(null) == fileChooser.APPROVE_OPTION) {
+					 try
+		                {
+						 	System.out.println(text.getFile().getAbsolutePath());
+		                    FileWriter writer = new FileWriter( text.getFile().getAbsolutePath());
+		                    BufferedWriter bw = new BufferedWriter( writer );
+		                    text.getText().write( bw );
+		                    bw.close();
+		                    text.getText().setText("");
+		                    text.getText().requestFocus();
+		                }
+		                catch(Exception e2) {}
+		            }
+					
+				}
+		} );
 		menuBar.getEditMenu().getTimeDate().addActionListener(new ActionListener() {
 			
 			@Override
@@ -116,4 +168,5 @@ public class TextLinkedToBar extends Component{
 	public void setMenuBar(MenuBar menuBar) {
 		this.menuBar = menuBar;
 	}
+
 }
