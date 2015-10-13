@@ -66,20 +66,10 @@ public class TextLinkedToBar extends Component{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (fileChooser.showSaveDialog(null) == fileChooser.APPROVE_OPTION) {
-					 try
-		                {
-						 	System.out.println(text.getFile().getAbsolutePath());
-		                    FileWriter writer = new FileWriter( text.getFile().getAbsolutePath());
-		                    BufferedWriter bw = new BufferedWriter( writer );
-		                    text.getText().write( bw );
-		                    bw.close();
-		                    text.getText().setText("");
-		                    text.getText().requestFocus();
-		                }
-		                catch(Exception e2) {}
-		            }
-					
+						//1) save over existing file
+						//2) make new file !!TAKE THE DIRECTORY +NAME
 				}
+			}
 		} );
 		menuBar.getEditMenu().getTimeDate().addActionListener(new ActionListener() {
 			
