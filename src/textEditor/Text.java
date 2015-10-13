@@ -20,7 +20,6 @@ public class Text extends Component {
 		super();
 		this.text = new JTextArea();
 		this.scroll = new JScrollPane(text);
-		this.file = new File("Untitled.txt");
 	}
 	
 	private JTextArea text;

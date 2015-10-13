@@ -28,11 +28,9 @@ public class Graphic extends JFrame {
 	
 	private JPanel middlePanel  = new JPanel();
 	private Container pane = getContentPane();
-	public Graphic(){
-		setTitle("Untitled");
+	public Graphic() {
+		setTitle("My UltraCool TextEditor");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-	public void start() {
 		setSize(860, 460);
 		pane.setLayout(new BorderLayout());
 		Text textArea= new Text();
@@ -41,8 +39,6 @@ public class Graphic extends JFrame {
 		TextLinkedToBar textLinkedToBar = new TextLinkedToBar(textArea, menuBar);
 		pane.add(textLinkedToBar.getText().getScroll(), BorderLayout.CENTER);
 		pane.add(textLinkedToBar.getMenuBar().getMyBar(), BorderLayout.NORTH);
-		
-	
 	}
 	
 }
