@@ -71,10 +71,7 @@ public class TextLinkedToBar extends Component {
 							
 						}
 					} else {
-						JOptionPane.showMessageDialog(new JFrame(),
-							    "Choose a .txt file",
-							    "Incorrect file",
-							    JOptionPane.ERROR_MESSAGE);
+						PopItems open= new PopItems("open");
 					}
 				}
 			}

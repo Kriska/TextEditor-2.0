@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class SaveAsChooser extends JFileChooser {
 	
@@ -19,7 +21,7 @@ public class SaveAsChooser extends JFileChooser {
                  bw.close();
              }
              catch(Exception e2) {
-            	 
+            	PopItems unexistingFile = new PopItems("saveAs");
              } 
 		}
 	}

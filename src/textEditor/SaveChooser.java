@@ -1,13 +1,12 @@
 package textEditor;
 
-import java.awt.event.ActionEvent;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 public class SaveChooser extends JFileChooser {
 	
 	SaveChooser(Text text) {
@@ -19,10 +18,7 @@ public class SaveChooser extends JFileChooser {
            bw.close();
        }
        catch(Exception e2) {
-    		JOptionPane.showMessageDialog(new JFrame(),
-				    "Use the Save As Menu",
-				    "Unexisting file",
-				    JOptionPane.ERROR_MESSAGE);
+    		PopItems unexistingFile = new PopItems("save");
        } 
 	}
 
