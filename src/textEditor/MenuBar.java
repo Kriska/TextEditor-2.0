@@ -19,6 +19,7 @@ public class MenuBar extends Component{
 	newField = new JMenuItem("New");
 	openField = new JMenuItem("Open");
 	saveField = new JMenuItem("Save");
+	saveAsField = new JMenuItem("Save As");
 	exitField= new ExitMenuItem();
 	wordWrap = new JCheckBoxMenuItem("Wordwrap");
 	fontMenuItem = new JMenuItem("Font");
@@ -29,6 +30,7 @@ public class MenuBar extends Component{
 	fileMenu.add(newField);
 	fileMenu.add(openField);
 	fileMenu.add(saveField);
+	fileMenu.add(saveAsField);
 	fileMenu.addSeparator();
 	fileMenu.add(exitField.getExit());
 	formatMenu.add(wordWrap);
@@ -66,7 +68,9 @@ public class MenuBar extends Component{
 	private JMenuItem newField;
 	private JMenuItem openField;
 	private JMenuItem saveField;
+	private JMenuItem saveAsField;
 	private ExitMenuItem exitField;
+	
 	
 	private JCheckBoxMenuItem wordWrap;
 
@@ -103,6 +107,16 @@ public class MenuBar extends Component{
 	}
 	public void setSaveField(JMenuItem saveField) {
 		this.saveField = saveField;
+	}
+
+	public JMenuItem getSaveAsField() {
+		return saveAsField;
+	}
+	public void setSaveAsField(JMenuItem saveAsField) {
+		this.saveAsField = saveAsField;
+	}
+	public void setFontMenuItem(JMenuItem fontMenuItem) {
+		this.fontMenuItem = fontMenuItem;
 	}
 	public ExitMenuItem getExitField() {
 		return exitField;

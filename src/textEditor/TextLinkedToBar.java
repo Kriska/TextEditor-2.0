@@ -58,23 +58,23 @@ public class TextLinkedToBar extends Component {
 									fileChooser.getSelectedFile().getName()
 											.length());
 					String isTxtFile = new String("txt");
-					if (extension.equals(isTxtFile)) {
+					if (extension.equals(isTxtFile)) { 
+						// DISPLAY FILE TEXT IN TEXT AREA
 						text.setFile(fileChooser.getSelectedFile());
+						try {
+							FileReader reader = new FileReader(text.getFile());
+							BufferedReader br = new BufferedReader(reader);
+							text.getText().read(br, null);
+							br.close();
+							text.getText().requestFocus();
+						} catch (Exception e2) {
+							
+						}
 					} else {
 						JOptionPane.showMessageDialog(new JFrame(),
 							    "Choose a .txt file",
 							    "Incorrect file",
 							    JOptionPane.ERROR_MESSAGE);
-					}
-					// DISPLAY FILE TEXT IN TEXT AREA
-					try {
-						FileReader reader = new FileReader(text.getFile());
-						BufferedReader br = new BufferedReader(reader);
-						text.getText().read(br, null);
-						br.close();
-						text.getText().requestFocus();
-					} catch (Exception e2) {
-						System.out.println(e2);
 					}
 				}
 			}
@@ -86,6 +86,13 @@ public class TextLinkedToBar extends Component {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				SaveChooser saveChooser= new SaveChooser(text);
+			}
+		});
+		//SAVE AS FILE
+		menuBar.getSaveAsField().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				SaveAsChooser saveAsChooser = new SaveAsChooser(text);
 			}
 		});
 		//TIME AND DATE 
