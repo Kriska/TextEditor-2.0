@@ -15,11 +15,16 @@ public class PopItems extends JOptionPane{
 		case "save": JOptionPane.showMessageDialog(new JFrame(),
 			    		"Use the Save As Menu",
 			    		"Unexisting file",
-			    		JOptionPane.ERROR_MESSAGE);
-		case "open" : JOptionPane.showMessageDialog(new JFrame(),
-							"Choose a .txt file",
+			    		JOptionPane.ERROR_MESSAGE); break;
+		case "txt" : JOptionPane.showMessageDialog(new JFrame(),
+							"Choose/Save as a .txt file",
 							"Incorrect file",
-							JOptionPane.ERROR_MESSAGE);
+							JOptionPane.ERROR_MESSAGE); break;
+		default: JOptionPane.showMessageDialog(new JFrame(),
+						"Error occured",
+						"Error",
+				JOptionPane.ERROR_MESSAGE); break;
+		
 		}
 		
 	}

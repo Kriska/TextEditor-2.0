@@ -55,12 +55,6 @@ public class MenuBar extends Component{
 	public void setWordWrap(JCheckBoxMenuItem wordWrap) {
 		this.wordWrap = wordWrap;
 	}
-	public JMenuItem getFontMenuItem() {
-		return fontMenuItem;
-	}
-	public void setFont(JMenuItem fontMenuItem) {
-		this.fontMenuItem = fontMenuItem;
-	}
 	private JMenuBar myBar;
 	private JMenu fileMenu;
 	private EditMenu editMenu;
@@ -73,7 +67,6 @@ public class MenuBar extends Component{
 	
 	
 	private JCheckBoxMenuItem wordWrap;
-
 	private JMenuItem fontMenuItem;	
 	
 	public JMenuBar getMyBar() {
@@ -123,5 +116,12 @@ public class MenuBar extends Component{
 	}
 	public void setExitField(ExitMenuItem exitField) {
 		this.exitField = exitField;
+	}
+
+	public JMenuItem getFontMenuItem() {
+		return fontMenuItem;
+	}
+	public void setFont(JMenuItem fontMenuItem) {
+		this.fontMenuItem = fontMenuItem;
 	}
 }

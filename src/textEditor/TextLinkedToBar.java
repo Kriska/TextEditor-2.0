@@ -40,7 +40,12 @@ public class TextLinkedToBar extends Component {
 		// NEW FILE
 		menuBar.getNewField().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				text.getText().setText(null);
+				if (text.getText().equals(null)) {
+					text.getText().setText(null);
+				}
+				else {
+					//POPUP DO YOU WANT TO SAVE
+				}
 			}
 		});
 		// OPEN FILE
@@ -107,7 +112,6 @@ public class TextLinkedToBar extends Component {
 				});
 		// WORDWRAP FUNCTION
 		menuBar.getWordWrap().addItemListener(new ItemListener() {
-
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {// checkbox has
@@ -120,6 +124,22 @@ public class TextLinkedToBar extends Component {
 				}
 				;
 			}
+		});
+		//FONT DISPLAY
+		menuBar.getFontMenuItem().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				FontDisplay display = new FontDisplay();
+				display.setVisible(true);
+				display.getOkButton().addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						text.getText().setFont(display.getPreviewFont().getFont());
+						display.dispose();
+			
+					}
+				});
+		}
 		});
 		// RIGHT CLICK POPUP FUNCTONING
 
