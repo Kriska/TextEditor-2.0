@@ -40,12 +40,7 @@ public class TextLinkedToBar extends Component {
 		// NEW FILE
 		menuBar.getNewField().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (text.getText().equals(null)) {
 					text.getText().setText(null);
-				}
-				else {
-					//POPUP DO YOU WANT TO SAVE
-				}
 			}
 		});
 		// OPEN FILE
