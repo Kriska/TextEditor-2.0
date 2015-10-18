@@ -10,8 +10,12 @@ import java.awt.event.MouseListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -57,22 +61,19 @@ public class TextLinkedToBar extends Component {
 											.lastIndexOf(".") + 1,
 									fileChooser.getSelectedFile().getName()
 											.length());
-					String isTxtFile = new String("txt");
-					if (extension.equals(isTxtFile)) { 
 						// DISPLAY FILE TEXT IN TEXT AREA
 						text.setFile(fileChooser.getSelectedFile());
 						try {
-							FileReader reader = new FileReader(text.getFile());
-							BufferedReader br = new BufferedReader(reader);
+							
+							 BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileChooser.getSelectedFile()),
+									 "Unicode"));
+			                 BufferedReader br = new BufferedReader(reader);
 							text.getText().read(br, null);
 							br.close();
 							text.getText().requestFocus();
 						} catch (Exception e2) {
 							
 						}
-					} else {
-						PopItems open= new PopItems("open");
-					}
 				}
 			}
 		});
